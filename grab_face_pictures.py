@@ -1,5 +1,8 @@
-#grab_face_pictures.py
+'''
+Python Script to gather face data using webcam
 
+Author : @arko
+'''
 import time, cv2, os
 
 detector = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
@@ -44,6 +47,7 @@ while True:
 	key = cv2.waitKey(1) & 0xFF
 
 	if key == ord("c"):
+		print("{} image/s captured".format(str(total+1)))
 		p = os.path.sep.join((IMG_CLASS_PATH, "{}.png".format(str(total).zfill(5))))
 		cv2.imwrite(p, frame)
 		total += 1
